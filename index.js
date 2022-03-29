@@ -2,7 +2,10 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const jest = require('jest');
 
-const html = '';
+const Manager = require('./lib/manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+
 let team = [];
 
 const questions = {
@@ -23,13 +26,13 @@ const questions = {
     }],
     manager: [{
         type: 'input',
-        name: 'extension',
+        name: 'officeNumber',
         message: 'Please enter your office extension: ',
     }],
     engineer: [{
         type: 'input',
         message: 'What is the employees GitHub username? ',
-        name: 'github',
+        name: 'gitHub',
     }],
     intern: [{
         type: 'input',
@@ -39,8 +42,22 @@ const questions = {
 }
 
 const prompt = async (employeeType) => {
+    let user = '';
     let response = await inquirer.prompt([...questions.employee, ...questions[employeeType]]);
-    team.push({ ...response, type: employeeType });
+    switch (employeeType) {
+        case 'manager':
+            user = new Manager(response);
+            break;
+        case 'engineer':
+            user = new Engineer(response);
+            break;
+        case 'intern':
+            user = new Intern(response);
+            break;
+        default:
+            return;
+    }
+    team.push(user);
 
     const addRole = await inquirer.prompt([{
         type: 'list',
@@ -59,14 +76,73 @@ const prompt = async (employeeType) => {
 
 prompt('manager');
 
+let html = `
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./dist/style.css" />
+    <title>Team Profile Generator</title>
+</head>
 
+<body>
 
+    <header>
+        <h1></h1>
+    </header>
 
+    <div class="container">
+        <div class="row">
+            ${team.map((member) => (
+    `<div class="col-md-4">
+    <div class="widget-container">
+        <div class="widget">
+            <div class="profile-card">
+                <div class="card-header">
+                    <div class="header-avatar">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="andy">
+                    </div>
+                    <div class="header-name">
+                    ${member.getName()}
+                    </div>
+                </div>
+                <div class="card-body bg-warning">
+                    <div class="body-description">
+                        <ul>
+                            <li>Roles ${member.getRole()}</li>
+                            <li>ID ${member.getId()}</li>
+                            <li>Email ${member.getEmail()}</li>
+                            ${member.getOfficeNumber() != undefined 
+                                ?  `<li>Office Number ${member.getOfficeNumber()}</li>`
+                                : ""
+                            }
+                            ${member.getGitHub() != undefined
+                                ? `<li> GitHub ${member.getGitHub()}</li>`
+                            : ""
+                            }
+                            ${member.getSchool() != undefined
+                            ? `<li> School ${member.getSchool()}</li>`
+                            : ""
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>     `
+))}
+        </div>
+    </div>
 
+</body>
 
-
-
+</html>
+`
 
 
 // process flow
