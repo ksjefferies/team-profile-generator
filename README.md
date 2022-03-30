@@ -83,7 +83,6 @@ https://user-images.githubusercontent.com/97249322/160746972-bc2055b5-18e1-4f4b-
 
 
 ----
-
 ## Github Repository:
 
 - [Github Repository for Team Profile Generator](https://github.com/ksjefferies/team-profile-generator)
