@@ -1,3 +1,4 @@
+// import npm modules/packages
 const inquirer = require('inquirer');
 const fs = require('fs');
 const jest = require('jest');
@@ -6,8 +7,10 @@ const Manager = require('./lib/manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
+// Global variables
 let team = [];
 
+// Object containing all questions, keys based on roles
 const questions = {
     employee: [{
         type: 'input',
@@ -39,8 +42,9 @@ const questions = {
         name: 'school',
         message: 'Please enter the name of your school: ',
     }]
-}
+};
 
+// Generate question bank based on employee role passed into it
 const prompt = async (employeeType) => {
     let user = '';
     let response = await inquirer.prompt([...questions.employee, ...questions[employeeType]]);
@@ -57,8 +61,11 @@ const prompt = async (employeeType) => {
         default:
             return;
     }
+
+    // Pushes user responses into array
     team.push(user);
 
+    // Determines either to continue entering additional members or builds team
     const addRole = await inquirer.prompt([{
         type: 'list',
         name: 'role',
@@ -67,13 +74,13 @@ const prompt = async (employeeType) => {
     }]);
 
     if (addRole.role == 'build team') {
-        // console.log(team)
         return;
     } else {
         await prompt(addRole.role);
     }
-}
+};
 
+// Write data to file
 prompt('manager').then(() => fs.writeFile('./dist/index.html', html(), () => console.log('Finished') ) )
 
 const pictures = {
@@ -82,7 +89,7 @@ const pictures = {
     intern: ''
 }
 
-
+// function creates HTML page
 let html = () => (`
 <!DOCTYPE html>
 <html lang="en">
@@ -122,14 +129,14 @@ let html = () => (`
                         <ul>
                             <li>Role: ${member.getRole()}</li>
                             <li>ID: ${member.getId()}</li>
-                            <li>Email: ${member.getEmail()}</li>
+                            <li>Email: <a href="mailto:${member.getEmail()}" target="_blank"> ${member.getEmail()}</a> </li>
                             ${
                             member.getOfficeNumber != undefined 
                                 ?  `<li>Office Number: ${member.getOfficeNumber()}</li>`
                                 : "" ||
                             
                             member.getGithub != undefined
-                                ? `<li> GitHub Username: ${member.getGithub()}</li>`
+                                ? ` <li> GitHub Username: <a href="https://github.com/${member.getGithub()}" target="_blank"> ${member.getGithub()} </a> </li>`
                             : "" ||
                             
                             member.getSchool != undefined
