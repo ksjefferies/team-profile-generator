@@ -1,51 +1,37 @@
 const Intern = require('../lib/Intern');
 
-test('Can instantiate Intern instance', () => {
-    const e = new Intern({});
-    expect(typeof (e)).toBe("object");
+test('test instantiate Intern instance', () => {
+    const testIntern = new Intern({});
+
+    expect(typeof (testIntern)).toBe('object');
 });
 
-test('Can set name via constructor arguements', () => {
-    const e = new Intern({ name: "" });
-    expect(e.name).toEqual(expect.any(String));
-});
+describe('Intern', () => {
+    const name = 'Habib Rosanni';
+    const id = 28;
+    const email = 'HabibRosanni@mail.com';
+    const school = 'Northeastern';
+    const role = 'Intern';
 
-test('Can set ID via constructor arguements', () => {
-    const e = new Intern({ id: 7 });
-    expect(e.id).toEqual(expect.any(Number));
-});
+    const testIntern = new Intern({ name, id, email, school });
 
-test('Can set email via constructor arguements', () => {
-    const e = new Intern({ email: '' });
-    expect(e.email).toEqual(expect.any(String));
-});
+    it('should return Intern name', () => {
+        expect(testIntern.getName()).toEqual(name);
+    });
 
-test('Can set school name via constructor arguements', () => {
-    const e = new Intern({ school: '' });
-    expect(e.school).toEqual(expect.any(String));
-});
+    it('should return Intern id', () => {
+        expect(testIntern.getId()).toEqual(id);
+    });
 
-test('Gets name from getName()', () => {
-    const e = new Intern({ name: 'Billy Bob' });
-    expect(e.getName()).toEqual(expect.any(String));
-});
+    it('should return Intern email', () => {
+        expect(testIntern.getEmail()).toEqual(email);
+    });
 
-test('Gets ID from getId()', () => {
-    const e = new Intern({ id: 7 });
-    expect(e.getId()).toEqual(expect.any(Number));
-});
+    it('should return Intern School', () => {
+        expect(testIntern.getSchool()).toEqual(school);
+    });
 
-test('Gets email from getEmail()', () => {
-    const e = new Intern({ email: 'BillyBob@mail.com' });
-    expect(e.getEmail()).toEqual(expect.any(String));
-});
-
-test('Gets school name from getSchool()', () => {
-    const e = new Intern({ school: '' });
-    expect(e.getSchool()).toEqual(expect.any(String));
-});
-
-test('Gets role from getRole()', () => {
-    const e = new Intern({});
-    expect(e.getRole()).toEqual(expect.any(String));
+    it('should return Intern role', () => {
+        expect(testIntern.getRole()).toEqual(role);
+    });
 });
