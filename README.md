@@ -1,71 +1,101 @@
 # Team Profile Generator
+-------
+
 
 ## Table of Content
 
+- [Description](#description)
+- [Objectives](#objectives)
+- [Installation](#installation)
+- [Usage Information](#usage)
+- [Images and Media](#media-and-images)
+- [GitHub Repository](#github-repository)
+- [Author](#author)  
+- [Contributors](#contributors)
+- [Technologies Used](#technologies-used) 
+- [License](#license)
+
+-------
 ## Description:  
 
-Your task is to build a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. Testing is key to making code maintainable, so you’ll also write a unit test for every part of your code and ensure that it passes each test.
+The Team Profile Generator (TPG) is a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. Testing is key to making code maintainable, so the application contains the ability to perform a unit test for every part of the code and ensure that it passes each test.
+
+-------
 
 ## Objectives:
+```
 
-AS A manager
-I WANT to generate a webpage that displays my team's basic info
-SO THAT I have quick access to their emails and GitHub profiles
-
------
-In this project, we did the following:
-
-```md
-GIVEN a command-line application that accepts user input
-WHEN I am prompted for my team members and their information
-THEN an HTML file is generated that displays a nicely formatted team roster based on user input
-WHEN I click on an email address in the HTML
-THEN my default email program opens and populates the TO field of the email with the address
-WHEN I click on the GitHub username
-THEN that GitHub profile opens in a new tab
-WHEN I start the application
-THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
-WHEN I enter the team manager’s name, employee ID, email address, and office number
-THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
-WHEN I select the engineer option
-THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
-WHEN I select the intern option
-THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
-WHEN I decide to finish building my team
-THEN I exit the application, and the HTML is generated
+- TPG is a command-line application that accepts user input to enter all data.
+- When the manager starts the information, they will need to answer the default questions:
+    * Name (default)
+    * Employee ID (default)
+    * Email Address (default)
+    * Office Number (Manager question only)
+- After answering the previous questions, the manager is given the option to
+    * Add an Engineer
+    * Add an Intern
+    * Finish Building Team
+- Selecting Engineer will require all the original default questions plus this additional:
+    * GitHub username (Engineer only)
+- Selecting Intern will require the default questions plus this additional
+    * School name (Intern only)
+- Selecting Finish Building Team
+    * Will push all data and generate a HTML and exit application
+    
 ```
 -----
-## Installation Steps / Requirements:
+## Installation
 
+1. Clone the TPG repository off of GitHub. (Link to this repository is below)
+2. Install dependencies needed for this application:
+    1. right click on the team-profile-generator folder within VS Code and select 'Open in Integrated Terminal'
+    2. enter 'npm install'
+        - To confirm the install was successful, enter npm test and wait for the testing to complete.  Green means you're good to proceed.
+
+-----
 ## Usage:
 
-## Team Profile Generator Images / Video:
+1. Start the integrated terminal within the app folder and enter 'node index.js' and press enter.
+2. Follow all the prompts.
+3. Once you are finished, you will find the generated HTML file within the 'dist' folder.
 
-<!-- ![Screenshot of Project Landing Page](./assets/images/landing-page.jpg)
-![Screenshot of Movie Search Page](./assets/images/movie-search-page.jpg) -->
+-----
+## Media and Images:
+
+
+Test Results:
+![Test Results](./assets/images/test-results.jpg)
+
+Generated HTML:
+![Screenshot of Team Profile Generator HTML](./assets/images/team-profile-html.jpg)
+
+Video of Team Profile Generator:
+
+- [Media of Team Profile Generator Usage](https://drive.google.com/file/d/1EvyRkrwOL09PZM50CGVi4cttF49KwdkU/view?usp=sharing)
 
 
 ----
-## Test Images
 
-## HTML generated image
-
-## Link for Github Repository:
+## Github Repository:
 
 - [Github Repository for Team Profile Generator](https://github.com/ksjefferies/team-profile-generator)
 
-## Authors:
+## Author:
 
 - [Kelly Jefferies](https://github.com/ksjefferies)
 
-## Technologies Used:
+## Contributors
 
+- Eugene Ahn
+- Daniel Norred
+
+## Technologies Used:
 - Javascript
 - HTML / CSS
 - Bootstrap
 - Node
-- Inquirer
-- Jest
+- [Inquirer](https://www.npmjs.com/package/inquirer)
+- [Jest](https://jestjs.io/)
 
 ## License:
 
