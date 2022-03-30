@@ -71,7 +71,15 @@ Generated HTML:
 
 Video of Team Profile Generator:
 
-- [Media of Team Profile Generator Usage](https://drive.google.com/file/d/1EvyRkrwOL09PZM50CGVi4cttF49KwdkU/view?usp=sharing)
+- [Media of Team Profile Generator Usage](https://drive.google.com/file/d/1HbrQiYWPQ4lBPNGMZkRT2A9l92PPlNAB/view?usp=sharing)
+
+
+
+https://user-images.githubusercontent.com/97249322/160746972-bc2055b5-18e1-4f4b-8be8-ddff1abeca5a.mp4
+
+
+
+
 
 
 ----
