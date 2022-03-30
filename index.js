@@ -74,9 +74,16 @@ const prompt = async (employeeType) => {
     }
 }
 
-prompt('manager');
+prompt('manager').then(() => fs.writeFile('./dist/index.html', html(), () => console.log('Finished') ) )
 
-let html = `
+const pictures = {
+    manager: '',
+    engineer: '',
+    intern: ''
+}
+
+
+let html = () => (`
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,7 +92,7 @@ let html = `
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./dist/style.css" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Team Profile Generator</title>
 </head>
 
@@ -98,7 +105,7 @@ let html = `
     <div class="container">
         <div class="row">
             ${team.map((member) => (
-    `<div class="col-md-4">
+    `<div class="col-md-3">
     <div class="widget-container">
         <div class="widget">
             <div class="profile-card">
@@ -113,21 +120,22 @@ let html = `
                 <div class="card-body bg-warning">
                     <div class="body-description">
                         <ul>
-                            <li>Roles ${member.getRole()}</li>
-                            <li>ID ${member.getId()}</li>
-                            <li>Email ${member.getEmail()}</li>
-                            ${member.getOfficeNumber() != undefined 
-                                ?  `<li>Office Number ${member.getOfficeNumber()}</li>`
-                                : ""
-                            }
-                            ${member.getGitHub() != undefined
-                                ? `<li> GitHub ${member.getGitHub()}</li>`
-                            : ""
-                            }
-                            ${member.getSchool() != undefined
-                            ? `<li> School ${member.getSchool()}</li>`
-                            : ""
-                            }
+                            <li>Role: ${member.getRole()}</li>
+                            <li>ID: ${member.getId()}</li>
+                            <li>Email: ${member.getEmail()}</li>
+                            ${
+                            member.getOfficeNumber != undefined 
+                                ?  `<li>Office Number: ${member.getOfficeNumber()}</li>`
+                                : "" ||
+                            
+                            member.getGithub != undefined
+                                ? `<li> GitHub Username: ${member.getGithub()}</li>`
+                            : "" ||
+                            
+                            member.getSchool != undefined
+                            ? `<li> School: ${member.getSchool()}</li>`
+                            : ""                            
+                        }
                         </ul>
                     </div>
                 </div>
@@ -135,45 +143,11 @@ let html = `
         </div>
     </div>
 </div>     `
-))}
+)).join('')}
         </div>
     </div>
 
 </body>
 
 </html>
-`
-
-
-// process flow
-/* 
-1 -  Manager Registers
-
-2 Add new user of type prompt If yes call create new user prompt. If no exit
-
-3  Create new user prompt grabs the user type. Comparitevely looks up specific questions in an object
-
-4. Go to 2
-
-minimum Two functions, add new user prompt. Add person Prompt.  Store all questions in an object
-let questions = {
-    employee: [{...}]
-    manager: [{...}]
-    ... etc
-}
-
-add employee function takes a param, equal to a question object property, Merge properties of question object from function input 
-    (type) => [...questions.employee, ...questions[type]]
-
-1. addEmployeePrompt('manager')
-
-2. addAnotherPromp() to ask if the user would like to add an employee
-    if yes then if yes then prompt again for the employee type. If no exit loop. 
-
-3. call addEmployeePrompt() with function parameter of selected employee type
-    i.e addEmployeePrompt("Intern")
-        
-4. Call addAnotherPrompt()
-
-
-*/
+`);

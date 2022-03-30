@@ -4,7 +4,7 @@
   "description": "## Task:",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,12 +18,12 @@
   },
   "homepage": "https://github.com/ksjefferies/team-profile-generator#readme",
   "dependencies": {
-    "inquirer": "^8.2.2",
-    "jest": "^27.5.1",
-    "require": "^2.4.20",
-    "requirer": "^0.0.4"
+    "inquirer": "^8.2.2"  
   },
   "directories": {
     "lib": "lib"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
   }
 }

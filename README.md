@@ -1,10 +1,12 @@
 # Team Profile Generator
 
-## Task:  
+## Table of Content
+
+## Description:  
 
 Your task is to build a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. Testing is key to making code maintainable, so you’ll also write a unit test for every part of your code and ensure that it passes each test.
 
-## Objective:
+## Objectives:
 
 AS A manager
 I WANT to generate a webpage that displays my team's basic info
@@ -33,14 +35,20 @@ WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated
 ```
 -----
+## Installation Steps / Requirements:
 
-## Team Profile Generator Images:
+## Usage:
+
+## Team Profile Generator Images / Video:
 
 <!-- ![Screenshot of Project Landing Page](./assets/images/landing-page.jpg)
 ![Screenshot of Movie Search Page](./assets/images/movie-search-page.jpg) -->
 
 
 ----
+## Test Images
+
+## HTML generated image
 
 ## Link for Github Repository:
 
@@ -53,7 +61,12 @@ THEN I exit the application, and the HTML is generated
 ## Technologies Used:
 
 - Javascript
+- HTML / CSS
+- Bootstrap
+- Node
+- Inquirer
+- Jest
 
 ## License:
 
-This code is licensed under the MIT License
+[![License](https://img.shields.io/badge/License-MIT%20License-Green)](http://choosealicense.com/licenses/mit/)
