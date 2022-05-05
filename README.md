@@ -1,7 +1,6 @@
 # Team Profile Generator
+
 -------
-
-
 ## Table of Content
 
 - [Description](#description)
@@ -21,7 +20,6 @@
 The Team Profile Generator (TPG) is a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. Testing is key to making code maintainable, so the application contains the ability to perform a unit test for every part of the code and ensure that it passes each test.
 
 -------
-
 ## Objectives:
 ```
 
@@ -62,7 +60,6 @@ The Team Profile Generator (TPG) is a Node.js command-line application that take
 -----
 ## Media and Images:
 
-
 Test Results:
 ![Test Results](./assets/images/test-results.jpg)
 
@@ -71,16 +68,7 @@ Generated HTML:
 
 Video of Team Profile Generator:
 
-- [Media of Team Profile Generator Usage](https://drive.google.com/file/d/1HbrQiYWPQ4lBPNGMZkRT2A9l92PPlNAB/view?usp=sharing)
-
-
-
-https://user-images.githubusercontent.com/97249322/160746972-bc2055b5-18e1-4f4b-8be8-ddff1abeca5a.mp4
-
-
-
-
-
+- [Media of Team Profile Generator Usage](https://user-images.githubusercontent.com/97249322/160746972-bc2055b5-18e1-4f4b-8be8-ddff1abeca5a.mp4)
 
 ----
 ## Github Repository:
@@ -91,18 +79,14 @@ https://user-images.githubusercontent.com/97249322/160746972-bc2055b5-18e1-4f4b-
 
 - [Kelly Jefferies](https://github.com/ksjefferies)
 
-## Contributors
-
-- Eugene Ahn
-- Daniel Norred
-
 ## Technologies Used:
-- Javascript
-- HTML / CSS
-- Bootstrap
-- Node
-- [Inquirer](https://www.npmjs.com/package/inquirer)
-- [Jest](https://jestjs.io/)
+
+![html](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![css3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![javascript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)  
+![node](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 
 ## License:
 

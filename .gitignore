@@ -102,3 +102,6 @@ typings/
 # TernJS port file
 .tern-port
 node_modules
+
+README-REQ.md
+package-lock.json
